@@ -17,18 +17,22 @@ import { purple } from "@mui/material/colors";
 function DenseAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{backgroundColor: "white"}}>
-        <Toolbar variant="dense">
+      <AppBar position="static" sx={{backgroundColor: "white"}} >
+        <Toolbar sx={{padding: 0}}>
+          <Box sx={{flexGrow: 0, width: "48px", height: "48px", display: "flex", justifyContent: "center", alignItems: "center"}}>
           <IconButton
             edge="start"
             aria-label="menu"
-            sx={{ mr: 15, color: "black" }}
+            sx={{ color: "black" }}
           >
             <ArrowBackIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{color: "#111111", fontWeight: 600}}>
+          </Box>
+          
+          <Typography variant="h6" component="div" sx={{color: "#111111", fontWeight: 600, flexGrow: 1, textAlign: "center"}}>
             로그인
           </Typography>
+          <Box sx={{flexGrow: 0, width: "48px", height: "48px"}}></Box>
         </Toolbar>
       </AppBar>
     </Box>
@@ -40,16 +44,19 @@ function SocialLoginBox() {
     <Grid Container 
     spacing={3} 
     sx={{display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    paddingLeft:"72px",
+    paddingRight:"72px",
+    width:"100%"
     }} >
       <Grid item>
-        <img src={kakaoLogin} alt="kakaoLogin" width="50px" height="50px" />
+        <img src={kakaoLogin} alt="kakaoLogin" width="48px" height="48px" />
       </Grid>
       <Grid item>
-        <img src={naverLogin} alt="naverLogin" width="50px" height="50px" />
+        <img src={naverLogin} alt="naverLogin" width="48px" height="48px" />
       </Grid>
       <Grid item>
-        <img src={googleLogin} alt="googleLogin" width="50px" height="50px" />
+        <img src={googleLogin} alt="googleLogin" width="48px" height="48px" />
       </Grid>
     </Grid>
   );
