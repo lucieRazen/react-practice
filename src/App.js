@@ -57,8 +57,12 @@ function SocialLoginBox() {
       </Grid>
       <Grid item>
         <img src={googleLogin} alt="googleLogin" width="48px" height="48px" />
- height="50px" />
-yled(Button)(({ theme }) => ({
+      </Grid>
+    </Grid>
+  );
+}
+
+// const ColorButton = styled(Button)(({ theme }) => ({
 //   color: theme.palette.getContrastText(purple[500]),
 //   backgroundColor: purple[500],
 //   "&:hover": {
