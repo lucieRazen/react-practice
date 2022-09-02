@@ -1,24 +1,114 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Button from "@mui/material/Button";
+import { Container } from "@mui/system";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import kakaoLogin from "./img-login-kakao-52.svg";
+import naverLogin from "./img-login-naver-52.svg";
+import googleLogin from "./img-login-google-52.png";
+import Grid from "@mui/material/Grid";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import { styled } from "@mui/material/styles";
+import { purple } from "@mui/material/colors";
+
+function DenseAppBar() {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" sx={{backgroundColor: "white"}}>
+        <Toolbar variant="dense">
+          <IconButton
+            edge="start"
+            aria-label="menu"
+            sx={{ mr: 15, color: "black" }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{color: "#111111", fontWeight: 600}}>
+            로그인
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+}
+
+function SocialLoginBox() {
+  return (
+    <Grid Container 
+    spacing={3} 
+    sx={{display: "flex",
+    justifyContent: "space-between"
+    }} >
+      <Grid item>
+        <img src={kakaoLogin} alt="kakaoLogin" width="50px" height="50px" />
+      </Grid>
+      <Grid item>
+        <img src={naverLogin} alt="naverLogin" width="50px" height="50px" />
+      </Grid>
+      <Grid item>
+        <img src={googleLogin} alt="googleLogin" width="50px" height="50px" />
+      </Grid>
+    </Grid>
+  );
+}
+
+// const ColorButton = styled(Button)(({ theme }) => ({
+//   color: theme.palette.getContrastText(purple[500]),
+//   backgroundColor: purple[500],
+//   "&:hover": {
+//     backgroundColor: purple[700],
+//   },
+// }));
+
+// function CustomizedButtons() {
+//   return (
+//     <Button sx={{ m: 6, padding: 1, border: "1px solid rgb(235 76 137)", color: "rgb(235 76 137)" }} variant="outlined" fullWidth>
+//       이메일로그인
+//     </Button>
+//   );
+// }
+
+const ColorButton = styled(Button)(({ theme }) => ({
+  margin: "48px",
+  padding: "8px",
+  border: "1px solid rgb(235 76 137)", 
+  color: "rgb(235 76 137)"
+}));
+
+function CustomizedButtons() {
+  return (
+    <ColorButton variant="outlined" fullWidth>
+      이메일로그인
+    </ColorButton>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <DenseAppBar />
+      <Container component="main" maxWidth="xs">
+        <Box
+          sx={{
+            marginTop: 24,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <CustomizedButtons />
+
+          <SocialLoginBox />
+
+          <Typography component="h1" variant="h6" sx={{ m: 4 }}>
+            회원가입
+          </Typography>
+        </Box>
+      </Container>
+    </>
   );
 }
 
